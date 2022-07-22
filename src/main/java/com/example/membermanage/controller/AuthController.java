@@ -6,12 +6,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequiredArgsConstructor
 @Controller
 public class AuthController {
 
     private final AuthService authService;
+
+    @RequestMapping(value="/")
+    public String index() {
+        return "redirect:/signin";
+    }
 
     @GetMapping("/signin")
     public String SigninForm() {
